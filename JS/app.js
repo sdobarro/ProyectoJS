@@ -7,13 +7,13 @@ if (isNaN(monto)) {
         icon: 'error',
         title: 'Ingresar un monto para que sea convertido',
         showConfirmButton: false,
-        timer: 800
+        timer: 1100
 })
         document.getElementById('result').textContent = '';
         return;
     }
 
-fetch ('exchangeRates.json')
+fetch ('https://raw.githubusercontent.com/sdobarro/ProyectoJS/main/exchangeRates.json')
     .then(response => response.json())
     .then(data => {
         const usd = monto / data.USD;
@@ -25,7 +25,7 @@ fetch ('exchangeRates.json')
             icon: 'success',
             title: 'Convirtiendo valor',
             showConfirmButton: false,
-            timer: 800
+            timer: 1100
         })
         document.getElementById('result').innerHTML = `
         <p>${monto} Pesos Argentinos equivale a:</p>
