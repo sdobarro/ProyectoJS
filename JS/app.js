@@ -13,14 +13,9 @@ if (isNaN(monto)) {
         return;
     }
 
-    // fetch('./exchangeRates.json')
-    const getDivisas = async () => {
-        
-    const response = await fetch('')
-    const divisas = await response.json()
-    localData(divisas)
-    // .then(response => response.json())
-    // .then(data => {
+fetch ('exchangeRates.json')
+    .then(response => response.json())
+    .then(data => {
         const usd = monto / data.USD;
         const eur = monto / data.EUR;
         const brl = monto / data.BRL;
@@ -37,8 +32,6 @@ if (isNaN(monto)) {
         <p>${usd.toFixed(2)} Dólares</p>
         <p>${eur.toFixed(2)} Euros</p>
         <p>${brl.toFixed(2)} Real Brasileño </p>
+        `;   
     }
-    }
-    `;   
-}
-})
+)})
